@@ -385,6 +385,12 @@ docker kill $(docker ps -q)
 docker ps -a | grep 'weeks ago' | awk '{print $1}' | xargs docker rm
 ```
 
+### Delete untagged images
+
+```
+docker images | grep "<none>" | awk '{print $3}' | xargs docker rmi
+```
+
 ### Delete stopped containers
 
 ```
